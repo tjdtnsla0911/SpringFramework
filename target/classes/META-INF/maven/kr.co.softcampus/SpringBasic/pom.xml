@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>kr.co.softcampus</groupId>
+	<artifactId>SpringBasic</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- xml에서 사용할 속성들 -->
+	<properties>
+
+		<!-- 자바 버전 -->
+		<java-version>13</java-version>
+		<!-- 스프링버전 여기빝에 5.2.9.을 다른버전으로 바꾸면 바로 Maven에서 바뀌는걸 볼수있다 -->
+		<org.springframework-version>5.2.9.RELEASE</org.springframework-version>
+
+		<!-- slf4j버전관리 -->
+		<org.slf4j-version>1.7.30</org.slf4j-version>
+
+		<!-- logback 버전관리 -->
+		<ch.qos.logback-version>1.2.3</ch.qos.logback-version>
+
+	</properties>
+
+	<!-- 헷갈릴까봐 적어두는데 <dependencies> 는 직접 적어야함 ㅠ -->
+	<!-- 여긴 프로젝트에서 사용할 라이브러리 경로 -->
+	<dependencies>
+
+		<!-- springfreamework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<!--Log ,slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${ch.qos.logback-version}</version>
+
+			<!-- log와 logback을 같이쓰기위해서해야할것 -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+
+		</dependency>
+
+
+	</dependencies>
+
+</project>
+
